@@ -44,7 +44,7 @@
 * GameOver (sử dụng nút Enter để chơi lại)
 ## Tính năng được bổ sung
 * Táo vàng giúp rắn trở nên siêu bất tử, rắn có thể đi xuyên cơ thể và có thể đi ra ngoài map. Trạng thái kết thúc khi rắn ăn táo màu đỏ
-* Ăn táo vàng +5 điểm, táo đỏ + 1 điểm
+* Ăn táo vàng +5 điểm, táo đỏ + 1 điểm. Rắn đi xuyên map là tính năng em chỉnh, không phải bug ạ.
 * Khi đạt mốc 50 điểm, rắn ăn táo đỏ sẽ biến thành màu đỏ
 ## **Kỹ thuật lập trình được sử dụng**
 * Lập trình đồ họa
