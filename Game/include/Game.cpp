@@ -91,7 +91,7 @@ void Game::Run( sf::Event &event)
         else if (event.type == sf::Event::KeyPressed && delayMove.asSeconds() >= 0.0025)
                 {       
                         sf::Vector2f newDirection;
-                        if (((event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::Left)))
+                        if (event.key.code == sf::Keyboard::A )
                         
                         {       
                                 newDirection = {-32.0f, 0.0f};                
@@ -99,21 +99,21 @@ void Game::Run( sf::Event &event)
                         {snake_direction = newDirection; delayMove = sf::Time::Zero;}
                                 }
                                 
-                        if (((event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up)))
+                        if (event.key.code == sf::Keyboard::W )
                         {       
                                 newDirection = {0.0f, -32.0f};
                               if (std::abs(snake_direction.x) != std::abs(newDirection.x) || std::abs(snake_direction.y) != std::abs(newDirection.y)) 
                         {snake_direction = newDirection; delayMove = sf::Time::Zero;}
                                 }
 
-                        if (((event.key.code == sf::Keyboard::S || event.key.code == sf::Keyboard::Down))  )
+                        if (event.key.code == sf::Keyboard::S )
                         {       
                                 newDirection = {0.0f, 32.0f};
                                 if (std::abs(snake_direction.x) != std::abs(newDirection.x) || std::abs(snake_direction.y) != std::abs(newDirection.y)) 
                         {snake_direction = newDirection; delayMove = sf::Time::Zero;}
                                 }
 
-                        if (((event.key.code == sf::Keyboard::D || event.key.code == sf::Keyboard::Right))   )
+                        if (event.key.code == sf::Keyboard::D)
                         {       
                                 newDirection = {32.0f, 0.0f};
                                 if (std::abs(snake_direction.x) != std::abs(newDirection.x) || std::abs(snake_direction.y) != std::abs(newDirection.y))
