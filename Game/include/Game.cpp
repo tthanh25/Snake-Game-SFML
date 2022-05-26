@@ -160,26 +160,13 @@ void Game::randomFood()
                         snake.Snake::Grow(snake_direction);
                         int x = 0; int y = 0;
                         z = rand() % 4;
-                        std::vector <sf::Vector2f> newFoodPos;
-                        newFoodPos = snake.getBodyPos();
-                        std::vector <sf::Vector2f> newFoodPos2;
-                        newFoodPos2 = snake.getBodyPosEnd();
-                        x = rand() % 30;
-                        y = rand() % 20;
-                        for (auto k : newFoodPos)
-                        {       
-                                if (x == k.x && y == k.y)
-                                {
-                                for (auto h : newFoodPos2)
-                                {
-                                x = rand() % 30;
-                                y = rand() % 20;  
-                                if (x != h.x || y != h.y) break;    
-                                
-                                if (x != k.x || y != k.y) break;
-                                }    
-                                }
+                        std::vector <sf::Vector2f> vectorEmptyCell = snake.getEmpty();
+                        sf::Vector2f foodPos = vectorEmptyCell[rand() % vectorEmptyCell.size()];
+
+                        if (z == 2) {
+                                food[1].setPosition(sf::Vector2f(foodPos.x * 32.0f, foodPos.y * 32.0f));
                         }
+                        else food[0].setPosition(sf::Vector2f(foodPos.x * 32.0f, foodPos. y* 32.0f));
                         
                         if (z == 2) {
                                 food[1].setPosition(sf::Vector2f(x*32.0f,y*32.0f));

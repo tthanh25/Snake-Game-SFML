@@ -30,7 +30,8 @@ class Snake : public sf::Drawable
     bool selfIntersect();
     void Reset();
     std::vector <sf::Vector2f> getBodyPos();
-    std::vector <sf::Vector2f> getBodyPosEnd();
+    std::vector <sf::Vector2f> getEmpty();
+
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 };

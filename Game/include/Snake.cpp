@@ -87,16 +87,17 @@ std::vector <sf::Vector2f> Snake::getBodyPos()
         std::vector <sf::Vector2f> posBody;
         for (auto piece : body)
             {
-                posBody.push_back(piece.getPosition());
+                 posBody.push_back(sf::Vector2f(piece.getPosition().x /32, piece.getPosition().y /32));
             }
         return posBody;
     }
-std::vector <sf::Vector2f> Snake::getBodyPosEnd()
-    {
-        std::vector <sf::Vector2f> posBodyEnd;
-        for (auto piece = body.end(); piece != body.begin(); piece++ )
-        {
-            posBodyEnd.push_back(piece->getPosition());
-        }
-        return posBodyEnd;
-    }
+std::vector <sf::Vector2f> Snake::getEmpty()
+    {   std::vector <sf::Vector2f> emptyCell;
+        std::vector <sf::Vector2f> posBody = Snake::getBodyPos();
+        for (int i = 0 ; i < 30; i++)
+            for (int j = 0 ; j <20 ; j++)
+                {   for (auto posEmpty : posBody)
+                    if (i != posEmpty.x || j != posEmpty.y) emptyCell.push_back(sf::Vector2f(i,j));
+                }
+        return emptyCell;
+    };
