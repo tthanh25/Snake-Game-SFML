@@ -8,7 +8,8 @@
 * Visual Studio Code ( hoặc bất kì trình biên dịch C++ nào khác, ở đây em sử dụng Visual Studio Code ) 
 * Mingw32 ( phiên bản 7.3.0 )
 * Thư viện SFML (đã có trong file src)
-### *Cách chạy chương trình:*
+### *Cách chạy chương trình:* 
+* Có thể chỉ clone về và chạy file main.exe để trải nghiệm game
 * Mở Visual Studio Code => Terminal => New Terminal (Tổ hợp phím Control + Shift + ` )
 * Gõ lệnh: 
 ###
