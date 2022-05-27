@@ -12,11 +12,11 @@ Snake:: ~Snake()
     //Khởi tạo rắn
     void Snake::Init(const sf::Texture &texture)
     {
-        float x = 320.0f;
+        float x = 0.0f;
         for (auto& piece : body)
             {   
                 piece.setTexture(texture);
-                piece.setPosition(sf::Vector2f(x,160.0f));
+                piece.setPosition(sf::Vector2f(x,64.0f));
                 x+=32;
             }
     }
@@ -97,6 +97,32 @@ std::vector <sf::Vector2f> Snake::getEmpty()
         for (int i = 0 ; i < 30; i++)
             for (int j = 0 ; j <20 ; j++)
                 {   for (auto posEmpty : posBody)
+                    if (i != posEmpty.x || j != posEmpty.y) emptyCell.push_back(sf::Vector2f(i,j));
+                }
+        return emptyCell;
+    };
+std::vector <sf::Vector2f> Snake::getEmptyWall(sf::Sprite sprite)
+    {   
+        std::vector <sf::Vector2f> emptyCell;
+        std::vector <sf::Vector2f> posBody = Snake::getBodyPos();
+        for (int i = 0 ; i < 30; i++)
+            for (int j = 0 ; j <20 ; j++)
+                {   for (auto posEmpty : posBody)
+                    if (!sprite.getGlobalBounds().contains(sf::Vector2f(32*i,32*j)))
+                    if (i != posEmpty.x || j != posEmpty.y) emptyCell.push_back(sf::Vector2f(i,j));
+                }
+        return emptyCell;
+    };
+std::vector <sf::Vector2f> Snake::getEmptyWallMove(sf::Sprite sprite1, sf::Sprite sprite2, sf::Sprite sprite3)
+    {   
+        std::vector <sf::Vector2f> emptyCell;
+        std::vector <sf::Vector2f> posBody = Snake::getBodyPos();
+        for (int i = 0 ; i < 30; i++)
+            for (int j = 0 ; j <20 ; j++)
+                {   for (auto posEmpty : posBody)
+                    if (!sprite1.getGlobalBounds().contains(sf::Vector2f(32*i,32*j)))
+                    if (!sprite2.getGlobalBounds().contains(sf::Vector2f(32*i,32*j)))
+                    if (!sprite3.getGlobalBounds().contains(sf::Vector2f(32*i,32*j)))
                     if (i != posEmpty.x || j != posEmpty.y) emptyCell.push_back(sf::Vector2f(i,j));
                 }
         return emptyCell;

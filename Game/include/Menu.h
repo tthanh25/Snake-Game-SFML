@@ -15,11 +15,17 @@ public:
     sf::Sprite BackgroundMenu;
     sf::Font font;
     int changeKey;
+    sf::Text textLevel[3];
+    int changeLevel;
+    bool startIn = false;
 
     Menu(sf::RenderWindow &window);
-    void handleEvent(sf::Event event);
+    void handleEvent(sf::Event &event);
+    void handleEventMenu(sf::Event &event);
     void MoveUp();
     void MoveDown();
+    void MoveUpLevel();
+    void MoveDownLevel();
     void Draw();
 
 };

@@ -10,16 +10,12 @@ int main ()
         sf::Time elapsedTime = sf::Time::Zero;
         sf::Time timePerFrame = sf::seconds(1.0f/60.0f);
         std::srand(time(NULL));
-        // Thêm âm thanh, hiệu ứng khi chơi và ăn mồi
+
+                // Thêm âm thanh, hiệu ứng khi chơi và ăn mồi
         sf::Music musicGame;
         sf::Music musicMenu;
-        sf::SoundBuffer eatSound;
-        sf::Sound eat;
         if (!musicGame.openFromFile("source/Point_the_star_music.ogg")) std::cout << "khong load duoc";
         if (!musicMenu.openFromFile("source/C418_Sweden_Trap_Remix.ogg")) std::cout << "khong load duoc";
-        if (!eatSound.loadFromFile("source/EatSound_CC0_by_EugeneLoza.ogg")) std::cout << "khong load duoc";
-        eat.setBuffer(eatSound);
-        eat.setVolume(100.0f);
         musicMenu.setVolume(20.0f);
         musicGame.setVolume(20.0f);
         musicGame.setLoop(true);
@@ -41,24 +37,22 @@ int main ()
                                 delayTime -= timePerFrame;
                                 
                                 if(getCurrentState() == 0)
-                                       { 
-                                        menu.handleEvent(event);
-                                        menu.Draw();
-                                        break;}
+                                       {
+                                        game.Reset();
+                                        if (menu.startIn == false)
+                                        {menu.handleEvent(event); menu.Draw();}
+                                        else if (menu.startIn == true)
+                                        {menu.handleEventMenu(event);
+                                        musicMenu.play(); 
+                                        menu.Draw();}
+                                        }
                                         
                                 if (getCurrentState() == 1) {
                                         game.Run(event);
                                         game.randomFood();
                                         game.Draw();
-                                        break;
                                         }
                         }       
-                                if (getCurrentState() != 1){
-                                        musicMenu.play(); 
-                                        // musicGame.play();
-                                        }
-                                if (game.checkEat) if (game.CheckGameOver == 0) eat.play();
-                                if (game.CheckGameOver) eat.stop();
                                 
                 }
         

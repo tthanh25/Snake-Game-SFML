@@ -13,6 +13,7 @@
 
 #include "Snake.h"
 #include "State.h"
+#include "Menu.h"
 
 class Game{  
 public:
@@ -24,6 +25,8 @@ public:
     sf::Sprite food[2];
     sf::Texture SNAKE[3];
     Snake snake;
+    sf::Texture WALL[2];
+    sf::Sprite wall[4];
 
     sf::Text scoreText[2];
     sf::Text highestScore;
@@ -40,19 +43,15 @@ public:
     int z;
 
     sf::Time elapsedTime = sf::Time::Zero;
-    sf::Time delayMove = sf::Time::Zero;
     sf::Time timePerFrame = sf::seconds(1.0f/60.0f);
-    sf::Time timeDelayMove = sf::seconds(1.0f/1000.0f);
 
     bool musicGameOn = false;
-    bool checkEat = false;
     bool CheckGamePause = false;
     bool CheckGameOver = false;
     sf::Font fontPause;
     sf::Text textGameOver;
     sf::Text textPause;
 
-    sf::Music musicGame;
     sf::SoundBuffer eatSound;
     sf::Sound eat;
 

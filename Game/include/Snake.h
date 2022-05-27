@@ -31,7 +31,8 @@ class Snake : public sf::Drawable
     void Reset();
     std::vector <sf::Vector2f> getBodyPos();
     std::vector <sf::Vector2f> getEmpty();
-
+    std::vector <sf::Vector2f> getEmptyWall(sf::Sprite sprite);
+    std::vector <sf::Vector2f> getEmptyWallMove(sf::Sprite sprite1, sf::Sprite sprite2, sf::Sprite sprite3);
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 };
