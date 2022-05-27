@@ -56,7 +56,6 @@
 ## **Kết luận**
 * Game cơ bản đã có đủ các cấu trúc của 1 game cơ bản
 * Tồn tại một số lỗi trong chương trình game như:
-* Sinh ra thức ăn (food) chưa được chính xác
 * Lỗi về hướng đi khi nhấn nhiều tổ hợp phím
 * Kiểm tra va chạm chưa chính xác
 * Hướng phát triển:
